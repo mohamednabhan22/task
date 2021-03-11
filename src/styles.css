@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #fafafa  !important;
+margin: 0;
+padding: 0;
+}
+.navbar-toggler{
+    border: 1px solid black;
+    padding: 0.6rem;
+}
+.navbar-toggler-icon {
+    display: block  !important;
+    width: 1.5em;
+    background: black;
+    height: 2px !important;
+    margin-bottom: 6px;
+      background: black !important;
+}
+.task-nav .nav-link{
+    color: black;
+    margin-right: 2rem;
+}

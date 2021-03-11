@@ -1,0 +1,133 @@
+<div class="search "><div class="container ">
+    <form>
+        <div class="row justify-content-center">
+            <input  [(ngModel)]="progName" name="search"  class="col-md-5 col-lg-3 px-4 py-2  mb-2 mb-md-0 mx-3 mx-md-0  border-gray" type="text" class="form-control-lg" placeholder="what do you want to learn " >
+            
+            <input [(ngModel)]="city" name="city" class="col-md-5 col-lg-3 px-4 py-2 mb-2 mb-md-0 mx-3 mx-md-0 border-gray" type="text" class="form-control-lg"  multiple="multiple" name="search" list="tags" autocomplete="off" placeholder="write or choose city">
+          <button (click)="search()" class="btn btn-primary btn-l px-4 d-sm-block mx-3 mx-md-0  d-md-inline  ">search</button>
+        </div>  
+      </form>
+  </div></div>
+  
+  <datalist id="tags">
+  <option value="black">
+  <option value="gold"> 
+  <option value="grey">
+  <option value="pink">
+  <option value="turquoise">
+  <option value="red">
+  <option value="white">
+  </datalist>
+  
+  <div class="programs"><div class="container">
+  
+  <div class="row">
+    <div class="col-lg-4">
+        <div class="filters">
+          <form action="">
+            <div class="form-group">
+                <label  class="label" for="exampleFormControlSelect1">city </label>
+               
+                <select [(ngModel)]="City"  (change)="filterByCity()" name="City" class="form-control px-2 " id="exampleFormControlSelect112" name="city">
+                  <option value="Choose one city or more" disabled selected>Choose one city or more</option>
+  
+                  <option *ngFor="let program of programsFilter" value="{{program.city}}">{{program.city}}</option>
+               
+                </select>
+                <div id="city"><ul></ul></div>
+              </div></form>
+              <label class="label" >Program </label>
+  
+              <div class="form-check form-check-inline ">
+                <input [(ngModel)]="programFilter"  (change)="filterByProgram()" class="form-check-input" type="radio" name="program" id="exampleRadios1" value="bachelor" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                    Bachelor 
+                </label>
+              </div>
+              <div class="form-check form-check-inline"  >
+                <input [(ngModel)]="programFilter"  (change)="filterByProgram()" class="form-check-input" type="radio" name="program" id="exampleRadios2" value="master">
+                <label class="form-check-label" for="exampleRadios2">
+                    Master  
+                </label>
+              </div>
+              <div class="form-check  form-check-inline   ">
+                <input [(ngModel)]="programFilter"  (change)="filterByProgram()" class="form-check-input" type="radio" name="program" id="exampleRadios3" value="mba" >
+                <label class="form-check-label" for="exampleRadios3">
+                    Mba 
+                </label>
+              </div>
+              <div class="form-check form-check-inline ">
+                <input [(ngModel)]="programFilter"  (change)="filterByProgram()" class="form-check-input" type="radio" name="program" id="exampleRadios2" value="bhd">
+                <label class="form-check-label" for="exampleRadios2">
+                    Bhd  
+                </label>
+              </div>
+  
+              <div class="form-group">
+                <label  class="label" >field </label>
+                <select [(ngModel)]="type"  (change)="filterByType()" class="form-control px-2" id="exampleFormControlSelect1">
+                  <option value="Choose one field" disabled selected>Choose one field</option>
+                  <option *ngFor="let program of programsFilter" value="{{program.type}}">{{program.type}}</option>
+
+                </select>
+              </div>
+  
+              <div class="form-group">
+                <label  class="label" >school </label>
+                <select [(ngModel)]="school"  (change)="filterBySchool()" class="form-control px-2" id="exampleFormControlSelect1">
+                  <option value="Choose one school" disabled selected>Choose one school </option>
+                  <option *ngFor="let program of programsFilter" value="{{program.school}}">{{program.school}}</option>
+
+                </select>
+              </div>
+  
+              <label class="label" >Language </label>
+  
+              <div class="form-check form-check-inline ">
+                <input [(ngModel)]="language"  (change)="filterByLanguage()" class="form-check-input" type="radio" name="language" id="exampleRadios1" value="all" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                    all 
+                </label>
+              </div>
+              <div class="form-check form-check-inline ">
+                <input [(ngModel)]="language"  (change)="filterByLanguage()" class="form-check-input" type="radio" name="language" id="exampleRadios2" value="English">
+                <label class="form-check-label" for="exampleRadios2">
+                    English  
+                </label>
+              </div>
+              <div class="form-check form-check-inline  ">
+                <input [(ngModel)]="language"  (change)="filterByLanguage()" class="form-check-input" type="radio" name="language" id="exampleRadios3" value="French" >
+                <label class="form-check-label" for="exampleRadios3">
+                    French 
+                </label>
+              </div>
+  
+              
+
+              <button class="btn-primary px-4 my-4 d-block">filter</button>
+             
+        </div>
+    </div>
+  
+    <div class="col-lg-8 mt-4 mt-lg-0">
+  <div class="details">
+  <div class="row mt-4 det" *ngFor="let program of programs">
+  <div class="col-2 d-none d-md-block">
+  <img src="{{program.image}}"  alt="">
+  </div>
+  <div class="col-md-7">
+  <h4 >{{program.Name}}</h4>
+  <h6>nova school of business&Economics</h6>
+  <p>{{program.school}} <span>{{program.fee}}per year &nbsp;&nbsp;&nbsp; <span>{{program.city}}</span> </span></p>
+  </div>
+  <div class="col-md-3 align-self-end">   <button class="btn btn-primary ">more info</button>
+  </div>
+  </div>
+
+  </div>
+  
+  
+    </div>
+  </div>
+  </div></div>
+ 
