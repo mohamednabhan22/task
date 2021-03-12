@@ -1,7 +1,6 @@
 {
   "name": "task",
   "version": "0.0.0",
-  "homepage": "https://task.github.io/task",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
