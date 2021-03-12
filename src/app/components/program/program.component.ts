@@ -28,17 +28,25 @@ export class ProgramComponent implements OnInit {
   search(){
     console.log(this.progName)
     console.log(this.city)
-    if(this.city!==null&&this.progName!==null){
-      this.programs = this.ProgramServiceService.getPrograms().filter(prog=>{
-    return   prog.Name.toLocaleLowerCase().match(this.progName.toLocaleLowerCase()) 
-    &&prog.city.toLocaleLowerCase()==this.city.toLocaleLowerCase()
-    })
-  }else if(this.city==null){
+ if(this.progName!==null&&this.city===""){
+   console.log(1)
+    this.programs = this.ProgramServiceService.getPrograms().filter(prog=>{
+      return   prog.Name.toLocaleLowerCase().match(this.progName.toLocaleLowerCase()) 
+      })
+  } else if(this.city!==null&&this.progName!==null){   console.log(2)
 
     this.programs = this.ProgramServiceService.getPrograms().filter(prog=>{
-      return prog.Name.toLocaleLowerCase().match(this.progName.toLocaleLowerCase()) 
-      })
-  }else{ this.programs = this.ProgramServiceService.getPrograms().filter(prog=>{
+  return   prog.Name.toLocaleLowerCase().match(this.progName.toLocaleLowerCase()) 
+  &&prog.city.toLocaleLowerCase()==this.city.toLocaleLowerCase()
+  })
+}else if(this.city!==null&&this.progName==null){   console.log(3)
+
+  this.programs = this.ProgramServiceService.getPrograms().filter(prog=>{
+return   prog.city.toLocaleLowerCase()==this.city.toLocaleLowerCase()
+})
+}
+  else{    console.log(4)
+     this.programs = this.ProgramServiceService.getPrograms().filter(prog=>{
     return   prog.Name.toLocaleLowerCase().match(this.progName.toLocaleLowerCase()) 
     })
   }
@@ -46,6 +54,8 @@ export class ProgramComponent implements OnInit {
 
 filterByCity(){
   console.log(this.City)
+  // this.city=this.City
+  this.progName===""
     this.programs = this.ProgramServiceService.getPrograms().filter(prog=>{
       console.log(this.City)
       return   prog.city==this.City;
